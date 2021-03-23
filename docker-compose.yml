@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  nke.tools.sambashare:
+    image: nke-tools-sambashare
+    build:
+      context: .
+      dockerfile: ./Dockerfile

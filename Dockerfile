@@ -10,10 +10,8 @@ RUN mkdir -p /media/storage && \
     chmod 0777 /media/storage && \
     addgroup -g 1000 smbgroup && \
     adduser --no-create-home --disabled-password --uid 1000 --shell /bin/false --ingroup smbgroup smbuser && \
-    echo -e "smbpass\nsmbpass" | smbpasswd -a -s smbuser && \
-    mkdir -p /run/openrc && \
-    touch /run/openrc/softlevel    
+    echo -e "smbpass\nsmbpass" | smbpasswd -a -s smbuser
+    
+EXPOSE 445/tcp
 
-EXPOSE 139/tcp 445/tcp
-
-CMD ["smbd", "-F","-i","-d=3"]    
+ENTRYPOINT ["smbd", "--foreground","--log-stdout"]    

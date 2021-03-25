@@ -16,4 +16,4 @@ RUN mkdir -p /media/storage && \
 
 EXPOSE 139/tcp 445/tcp
 
-ENTRYPOINT ["smbd", "-F","-i","-d=3"]    
+CMD ["smbd", "-F","-i","-d=3"]    

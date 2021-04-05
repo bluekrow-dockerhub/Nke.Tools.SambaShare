@@ -15,3 +15,4 @@ RUN mkdir -p /media/storage && \
 EXPOSE 445/tcp
 
 ENTRYPOINT ["smbd", "--foreground","--log-stdout"]    
+CMD []

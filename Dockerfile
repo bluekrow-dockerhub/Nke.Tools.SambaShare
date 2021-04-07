@@ -9,10 +9,9 @@ RUN mkdir -p /media/storage && \
     echo "shared content" > /media/storage/shared-file.txt && \ 
     chmod 0777 /media/storage && \
     addgroup -g 1000 smbgroup && \
-    adduser --no-create-home --disabled-password --uid 1000 --shell /bin/false --ingroup smbgroup smbuser && \
-    echo -e "smbpass\nsmbpass" | smbpasswd -a -s smbuser
+    adduser --no-create-home --disabled-password --uid 1000 --shell /bin/false --ingroup smbgroup user && \
+    echo -e "pass\npass" | smbpasswd -a -s user
     
 EXPOSE 445/tcp
 
-ENTRYPOINT ["smbd", "--foreground","--log-stdout"]    
-CMD []
+ENTRYPOINT ["/bin/sh", "-c", "smbd && /bin/sh"]

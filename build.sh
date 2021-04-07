@@ -1,5 +1,6 @@
-﻿#!/bin/bash
+#!/bin/bash
 
-docker build \
+sudo docker build \
   -t nke-tools-sambashare \
   .
+  

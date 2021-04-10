@@ -10,6 +10,4 @@ sudo docker run \
   --rm \
   nke-tools-sambashare
 
-#-dt
-
-echo "Done"
+echo "Container is running"
